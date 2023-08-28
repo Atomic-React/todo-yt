@@ -1,0 +1,13 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.dark {
+	background-color: #343434;
+	color: #fff;
+}
+
+.dark *:not(button) {
+	color: #fff;
+	border-color: #fff !important;
+}
