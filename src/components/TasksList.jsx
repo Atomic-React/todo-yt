@@ -3,7 +3,7 @@ import Task from './Task';
 
 const TasksList = ({ tasks, onUpdateTask, onDeleteTask }) => {
 
-	// console.log('RENDER TasksList');
+	console.log('RENDER TASKS LIST');
 
 	return (
 		<div>
@@ -19,8 +19,5 @@ const TasksList = ({ tasks, onUpdateTask, onDeleteTask }) => {
 };
 
 export default memo(TasksList, (prevProps, nextProps) => {
-	if (JSON.stringify(prevProps.tasks) !== JSON.stringify(nextProps.tasks)) {
-		return false;
-	}
-	return true;
+	return JSON.stringify(prevProps.tasks) === JSON.stringify(nextProps.tasks);
 });
