@@ -3,8 +3,6 @@ import Task from './Task';
 
 const TasksList = ({ tasks, onUpdateTask, onDeleteTask }) => {
 
-	console.log('RENDER TASKS LIST');
-
 	return (
 		<div>
 			<ul className="tasks-list">
