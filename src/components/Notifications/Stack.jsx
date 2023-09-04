@@ -1,10 +1,11 @@
 import './Notifications.css';
 
-import { useNotifications } from '../../contexts/notifications.context';
+import NotificationsContext from '../../contexts/notifications.context';
 import Notification from './Notification';
+import { useContext } from 'react';
 
 const NotificationsStack = () => {
-	const { notifications } = useNotifications();
+	const { notifications } = useContext(NotificationsContext);
 
 	return (
 		<div className="notifications">

@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import Task from './Task';
 
 const TasksList = ({ tasks, onUpdateTask, onDeleteTask }) => {
@@ -16,6 +15,4 @@ const TasksList = ({ tasks, onUpdateTask, onDeleteTask }) => {
 	);
 };
 
-export default memo(TasksList, (prevProps, nextProps) => {
-	return JSON.stringify(prevProps.tasks) === JSON.stringify(nextProps.tasks);
-});
+export default TasksList;

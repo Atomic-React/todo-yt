@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState } from 'react';
 import NotificationsStack from '../components/Notifications/Stack';
 import { generateUniqueId } from '../utils/id.util';
 
@@ -31,32 +31,11 @@ export const NotificationsProvider = ({ children }) => {
 	return (
 		<NotificationsContext.Provider value={{
 			notifications,
-			pushNotification,
-			removeNotification,
+			push: pushNotification,
+			remove: removeNotification,
 		}}>
 			<NotificationsStack />
 			{ children }
 		</NotificationsContext.Provider>
 	);
-};
-
-export const useNotifications = () => {
-	const context = useContext(NotificationsContext);
-	if (context === undefined) {
-		throw new Error('useNotifications must be used within a NotificationsProvider');
-	}
-
-	const push = (notification) => {
-		context.pushNotification(notification);
-	};
-
-	const remove = (id) => {
-		context.removeNotification(id);
-	};
-
-	return {
-		notifications: context.notifications,
-		push,
-		remove,
-	};
 };

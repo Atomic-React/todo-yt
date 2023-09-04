@@ -1,20 +1,21 @@
-import { memo, useState } from 'react';
+const CreateTaskForm = ({ onSubmit }) => {
 
-const CreateTaskForm = ({ message, onSubmit }) => {
-
-	const [ value, setValue ] = useState('');
-
-	console.log('RENDER CreateTaskForm');
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		const formData = new FormData(event.target);
+		const name = formData.get('name');
+		onSubmit(name);
+		event.target.reset();
+	};
 
 	return (
 		<div>
-			<form>
-				<input type="text" name="name" placeholder="Task name" value={ value } onChange={ (event) => setValue(event.target.value) } />
-				<button type="button" onClick={ onSubmit(value) }>Add</button>
+			<form onSubmit={ handleSubmit }>
+				<input type="text" name="name" placeholder="Task name"/>
+				<button>Add</button>
 			</form>
-			{ message && <p style={{ color: 'green' }}>{ message }</p> }
 		</div>
 	);
 };
 
-export default memo(CreateTaskForm);
+export default CreateTaskForm;

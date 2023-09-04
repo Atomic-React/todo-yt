@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 const DeleteCompleted = ({ onDeleteCompleted }) => {
 	return (
 		<button style={ { marginLeft: 'auto'} } type="button" onClick={ onDeleteCompleted('completed') }>
@@ -8,4 +6,4 @@ const DeleteCompleted = ({ onDeleteCompleted }) => {
 	);
 };
 
-export default memo(DeleteCompleted);
+export default DeleteCompleted;

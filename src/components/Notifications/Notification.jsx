@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { useNotifications } from '../../contexts/notifications.context';
+import { useContext, useEffect } from 'react';
+import NotificationsContext from '../../contexts/notifications.context';
 
 const Notification = ({ notification }) => {
-	const { remove } = useNotifications();
+	const { remove } = useContext(NotificationsContext);
 	const { id, type, message, dissmissDelay = 3000 } = notification;
 	const handleClose = () => remove(id);
 
@@ -17,6 +17,7 @@ const Notification = ({ notification }) => {
 		return () => {
 			clearTimeout(timeout);
 		};
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ dissmissDelay ]);
 
 	return (

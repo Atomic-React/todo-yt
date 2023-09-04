@@ -1,9 +1,7 @@
-import { memo, useContext } from 'react';
+import { useContext } from 'react';
 import ThemeContext from '../contexts/theme.context';
 
 const Description = () => {
-
-	// console.log('RENDER DESCRIPTION');
 
 	const { theme } = useContext(ThemeContext);
 
@@ -14,4 +12,4 @@ const Description = () => {
 	);
 };
 
-export default memo(Description);
+export default Description;
