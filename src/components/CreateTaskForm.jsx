@@ -1,10 +1,15 @@
-const CreateTaskForm = ({ onSubmit }) => {
+import { useContext } from 'react';
+import TasksContext from '../contexts/tasks.context';
+
+const CreateTaskForm = () => {
+
+	const { createTask } = useContext(TasksContext);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const formData = new FormData(event.target);
 		const name = formData.get('name');
-		onSubmit(name);
+		createTask(name);
 		event.target.reset();
 	};
 
