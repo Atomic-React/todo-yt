@@ -1,9 +1,8 @@
-import { useContext } from 'react';
-import TasksContext from '../contexts/tasks.context';
+import useTasks from '../hooks/useTasks';
 
 const CreateTaskForm = () => {
 
-	const { createTask } = useContext(TasksContext);
+	const { createTask } = useTasks();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();

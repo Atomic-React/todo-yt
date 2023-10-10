@@ -18,6 +18,7 @@ const TasksContextProvider = ({ children }) => {
 			id: maxId + 1,
 			name: value,
 			completed: false,
+			created_at: new Date(),
 		};
 		setTasks((prevTasks) => {
 			return [ ...prevTasks, newTask ];
